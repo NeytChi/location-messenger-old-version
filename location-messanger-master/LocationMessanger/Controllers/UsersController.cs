@@ -8,13 +8,12 @@ using Microsoft.AspNetCore.Http;
 using miniMessanger;
 using miniMessanger.Models;
 using miniMessanger.Manage;
-using LocationMessanger.Reponses;
+using LocationMessanger.Responses;
+using Microsoft.Extensions.Options;
+using LocationMessanger.Settings;
 
 namespace LocationMessanger.Controllers
 {
-    /// <summary>
-    /// User functional for general movement. This class will be generate functional for user ability.
-    /// </summary>
     [ApiController]
     [Route("v1.0/[controller]/[action]")]
     public class UsersController : ControllerBase
@@ -32,17 +31,16 @@ namespace LocationMessanger.Controllers
 		
         public string AwsPath;
         
-        public UsersController(Context context)
+        public UsersController(Context context, IOptions<ServerSettings> settings)
         {
-            Config config = new();
-            this.AwsPath = config.AwsPath;
+            this.AwsPath = settings.Value.AwsPath;
             this.context = context;
             this.Validator = new Validator();
-            this.users = new Users(context, Validator);
-            this.chats = new Chats(context, users, Validator);
-            this.profiles = new Profiles(context);
+            this.users = new Users(context, Validator, settings);
+            this.chats = new Chats(context, users, Validator, settings);
+            this.profiles = new Profiles(context, settings);
             this.blocks = new Blocks(users, context);
-            this.authentication = new Authentication(context, Validator);
+            this.authentication = new Authentication(context, Validator, settings);
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]

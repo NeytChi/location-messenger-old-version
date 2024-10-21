@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using LocationMessanger.Settings;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
@@ -10,11 +11,10 @@ namespace LocationMessanger.Controllers
     {
         public string UrlRedirect = "";
         public string UrlCheck = "";
-        public HttpRequestSender()
-        {
-            Config config = new();
-            UrlRedirect = config.urlRedirect;
-            UrlCheck = config.urlCheck;
+        public HttpRequestSender(IOptions<ServerSettings> settings)
+        { 
+            UrlRedirect = settings.Value.urlRedirect;
+            UrlCheck = settings.Value.urlCheck;
         }
         public bool CheckUrlState()
         {
@@ -35,7 +35,7 @@ namespace LocationMessanger.Controllers
         {
             if (!string.IsNullOrEmpty(url))
             {
-                WebClient client = new();
+                var client = new WebClient();
                 client.Headers.Add("user-agent",
                 "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
                 Stream data = client.OpenRead(url);

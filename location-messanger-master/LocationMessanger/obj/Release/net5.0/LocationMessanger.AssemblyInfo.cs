@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LocationMessanger")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b894949a335d41f72991bfe4364639a6205b9fd1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+549bec4c703025f3e05ddaa13c3c33b46a686102")]
 [assembly: System.Reflection.AssemblyProductAttribute("LocationMessanger")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LocationMessanger")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

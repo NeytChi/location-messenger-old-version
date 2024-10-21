@@ -1,17 +1,7 @@
-﻿using System;
-using Common;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
-using miniMessanger.Models;
-
-#nullable disable
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace miniMessanger.Models
 {
-    /// <summary>
-    /// Контект БД для управления таблицами данных.
-    /// </summary>
     public partial class Context : DbContext
     {
         public bool manualControl = false;
@@ -47,53 +37,6 @@ namespace miniMessanger.Models
             {
                 optionsBuilder.UseInMemoryDatabase("messanger");
             }
-            optionsBuilder.EnableSensitiveDataLogging();
-            if (manualControl)
-            {
-                if (!optionsBuilder.IsConfigured)
-                {
-                    Config config = new();
-                    optionsBuilder.UseMySql(config.GetDatabaseConfigConnection(), ServerVersion.Parse("8.0.24-mysql"));
-                }
-            }
-        }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<BlockedUser>(entity =>
-            {
-                entity.HasKey(block => block.BlockedId)
-                    .HasName("PRIMARY");
-
-                entity.ToTable("blocked_users");
-
-                entity.HasIndex(block => block.UserId)
-                    .HasName("user_id");
-
-                entity.Property(block => block.BlockedId)
-                    .HasColumnName("blocked_id")
-                    .HasColumnType("int(11)");
-
-                entity.Property(block => block.UserId)
-                    .HasColumnName("user_id")
-                    .HasColumnType("int(11)");
-
-                entity.Property(block => block.BlockedUserId)
-                    .HasColumnName("blocked_user_id")
-                    .HasColumnType("int(11)");
-
-                entity.Property(block => block.BlockedDeleted)
-                    .HasColumnName("blocked_deleted")
-                    .HasColumnType("boolean");
-
-                entity.Property(block => block.BlockedReason)
-                    .HasColumnName("blocked_reason")
-                    .HasColumnType("varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci");
-
-                entity.HasOne(block => block.User)
-                    .WithMany(user => user.Blocks)
-                    .HasForeignKey(block => block.UserId)
-                    .HasConstraintName("blocked_users_ibfk_1");
-            });
         }
     }
 }

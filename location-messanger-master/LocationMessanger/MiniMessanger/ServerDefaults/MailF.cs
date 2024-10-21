@@ -3,15 +3,26 @@ using Serilog;
 using System.Net;
 using Serilog.Core;
 using System.Net.Mail;
-using Newtonsoft.Json.Linq;
+using LocationMessanger.Settings;
+using Microsoft.Extensions.Options;
 
 namespace Common
 {
     public class MailF
     {
-        public MailF()
+        public MailF(IOptions<ServerSettings> settings)
         {
-            Init();
+            ip = settings.Value.IP;
+            domen = settings.Value.Domen;
+            mailAddress = settings.Value.mail_address;
+            mailPassword = settings.Value.mail_password;
+            GmailServer = settings.Value.smtp_server;
+            GmailPort = settings.Value.smtp_port;
+            emailEnable = settings.Value.email_enable;
+            smtp = new SmtpClient(GmailServer, GmailPort);
+            smtp.Credentials = new NetworkCredential(mailAddress, mailPassword);
+            from = new MailAddress(mailAddress, domen);
+            smtp.EnableSsl = true;
             log = new LoggerConfiguration()
             .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
             .CreateLogger();
@@ -26,25 +37,7 @@ namespace Common
         private string mailPassword;
         private MailAddress from;
         private SmtpClient smtp;
-
-        public void Init()
-        {
-            Config config = new Config();
-            ip = config.IP;
-            domen = config.Domen;
-            mailAddress = config.GetServerConfigValue("mail_address", JTokenType.String);
-            mailPassword = config.GetServerConfigValue("mail_password", JTokenType.String);
-            GmailServer = config.GetServerConfigValue("smtp_server", JTokenType.String);
-            GmailPort = config.GetServerConfigValue("smtp_port", JTokenType.Integer);
-            emailEnable = config.GetServerConfigValue("email_enable", JTokenType.Boolean);
-            if (ip != null && mailAddress != null)
-            {
-                smtp = new SmtpClient(GmailServer, GmailPort);
-                smtp.Credentials = new NetworkCredential(mailAddress, mailPassword);
-                from = new MailAddress(mailAddress, domen);
-                smtp.EnableSsl = true;
-            }
-        }
+        
         public async void SendEmail(string email, string subject, string text)
         {
             MailAddress to = new MailAddress(email);
@@ -56,13 +49,13 @@ namespace Common
             {
                 if (emailEnable)
                 {
-                    await smtp.SendMailAsync(message);
+                    smtp.SendMailAsync(message);
                 }
                 log.Information("Send message to " + email);
             }
             catch (Exception e)
             {
-                Log.Error("Can't send email message, ex: " + e.Message);
+                log.Error("Can't send email message, ex: " + e.Message);
             }
         }
     }

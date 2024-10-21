@@ -5,17 +5,20 @@ using System.Linq;
 using Serilog.Core;
 using miniMessanger.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
+using LocationMessanger.Settings;
 
 namespace miniMessanger
 {
     public class Profiles
     {
         public Context context;
-        public FileSaver fileSystem = new FileSaver();
+        public FileSaver fileSystem;
         public Logger log;
-        public Profiles(Context context)
+        public Profiles(Context context, IOptions<ServerSettings> settings)
         {
             this.context = context;
+            fileSystem = new FileSaver(settings);
             log = new LoggerConfiguration()
                 .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
                 .CreateLogger();

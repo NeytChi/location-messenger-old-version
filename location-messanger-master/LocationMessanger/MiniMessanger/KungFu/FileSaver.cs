@@ -4,6 +4,8 @@ using Serilog;
 using System.IO;
 using Serilog.Core;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
+using LocationMessanger.Settings;
 
 namespace miniMessanger
 {
@@ -11,10 +13,9 @@ namespace miniMessanger
     {
         public Logger log;
         public string savepath;
-        public FileSaver()
+        public FileSaver(IOptions<ServerSettings> settings)
         {
-            Config config = new Config();
-            this.savepath = config.savePath;
+            this.savepath = settings.Value.savePath;
             log = new LoggerConfiguration()
             .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
             .CreateLogger();

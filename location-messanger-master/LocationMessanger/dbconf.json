@@ -1,8 +1,0 @@
-{ 
-	"Server" : "localhost",
-	"Database" : "location_messanger", 
-	"User" : "root", 
-	"Password" : "Pass1234!", 
-  "Pooling" : "false",
-	"SslMode" : "none"
-}

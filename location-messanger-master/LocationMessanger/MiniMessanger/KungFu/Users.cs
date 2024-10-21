@@ -6,7 +6,9 @@ using miniMessanger.Models;
 using System.Collections.Generic;
 using System;
 using Z.EntityFramework.Plus;
-using LocationMessanger.Reponses;
+using LocationMessanger.Responses;
+using Microsoft.Extensions.Options;
+using LocationMessanger.Settings;
 
 namespace miniMessanger.Manage
 {
@@ -16,11 +18,10 @@ namespace miniMessanger.Manage
         public string awsPath;
         public Validator validator;
         public Logger log;
-        public Users(Context context, Validator validator)
+        public Users(Context context, Validator validator, IOptions<ServerSettings> settings)
         {
-            Config config = new();
             this.context = context;
-            this.awsPath = config.AwsPath;
+            this.awsPath = settings.Value.AwsPath;
             this.validator = validator;
             log = new LoggerConfiguration()
             .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
@@ -119,16 +120,12 @@ namespace miniMessanger.Manage
         }
         public User GetUserByPublicToken(string token, ref string message)
         {
-            if (!string.IsNullOrEmpty(token))
+            var user = context.User.Where(u => u.UserPublicToken == token && u.Activate == 1 && !u.Deleted).FirstOrDefault();
+            if (user == null)
             {
-                User user = context.User.Where(u => u.UserPublicToken == token && u.Activate == 1 && !u.Deleted).FirstOrDefault();
-                if (user == null)
-                {
-                    message = "Server can't define user by token.";
-                }
-                return user;
+                message = "Server can't define user by token.";
             }
-            return null;
+            return user;
         }
         public User GetUserWithProfile(string userToken, ref string message)
         {

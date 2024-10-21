@@ -1,4 +1,4 @@
-using Common;
+using LocationMessanger.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using miniMessanger.Models;
+using System;
+using System.Runtime;
 
 namespace LocationMessanger
 {
@@ -18,16 +20,14 @@ namespace LocationMessanger
         }
 
         public IConfiguration Configuration { get; }
-        public readonly string AllowSpecificOrigins = "AllowSpecificOrigins";
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var config = new Config();
-
+            services.Configure<ServerSettings>(Configuration.GetSection("ServerSettings"));
             services.AddCors(options =>
             {
-                options.AddPolicy(AllowSpecificOrigins,
+                options.AddPolicy("AllowSpecificOrigins",
                 builder =>
                 {
                     builder.AllowAnyOrigin()
@@ -37,9 +37,9 @@ namespace LocationMessanger
                 });
             });
 
-            services.AddDbContext<Context>(options => options.UseMySql(config.GetDatabaseConfigConnection(), 
-                ServerVersion.Parse("8.0.24-mysql")));
-
+            services.AddDbContext<Context>(options => options.UseMySql(
+                "Server=localhost;Database=location_messanger;User=mrootkyta;Password=Pass1234!;Port=3307;",
+                new MySqlServerVersion(new Version(8, 0, 36))));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -70,7 +70,7 @@ namespace LocationMessanger
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseCors(AllowSpecificOrigins);
+            app.UseCors("AllowSpecificOrigins");
             app.UseAuthentication();
         }
     }

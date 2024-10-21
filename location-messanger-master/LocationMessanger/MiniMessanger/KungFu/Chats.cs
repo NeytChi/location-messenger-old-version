@@ -7,9 +7,10 @@ using Serilog.Core;
 using miniMessanger.Manage;
 using miniMessanger.Models;
 using Microsoft.AspNetCore.Http;
-using System.Collections.Generic;
 using Z.EntityFramework.Plus;
-using LocationMessanger.Controllers;
+using LocationMessanger.Responses;
+using Microsoft.Extensions.Options;
+using LocationMessanger.Settings;
 
 namespace miniMessanger
 {
@@ -22,15 +23,14 @@ namespace miniMessanger
         public Logger log;
         public string savePath;
         public string awsPath;
-        public Chats(Context context, Users users, Validator validator)
+        public Chats(Context context, Users users, Validator validator, IOptions<ServerSettings> settings)
         {
-            Config config = new Config();
             this.context = context;
-            this.savePath = config.savePath;
+            this.savePath = settings.Value.savePath;
             this.users = users;
-            this.awsPath = config.AwsPath;
+            this.awsPath = settings.Value.AwsPath;
             this.validator = validator;
-            this.system = new FileSaver();
+            this.system = new FileSaver(settings);
             log = new LoggerConfiguration()
             .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
             .CreateLogger();

@@ -1,5 +1,4 @@
 using System;
-using Common;
 using miniMessanger.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -9,16 +8,9 @@ namespace LocationMessanger
     public class Program
     {
         public static bool requestView = false;
-        public static string HostHttp;
-
         public static void Main(string[] args)
         {
-            var config = new Config();
-            HostHttp = config.GetHostsUrl();
-            using (var context = new Context(true))
-            {
-                context.Database.EnsureCreated();
-            }
+           
             if (args != null)
             {
                 if (args.Length >= 1)
@@ -41,7 +33,7 @@ namespace LocationMessanger
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().UseUrls(HostHttp);
+                    webBuilder.UseStartup<Startup>();
                 });
     }
 }
