@@ -1,7 +1,5 @@
 ﻿using Common;
-using Serilog;
 using System.Linq;
-using Serilog.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 
@@ -65,11 +63,7 @@ namespace LocationMessanger.Controllers
             string message = null;
             if (authentication.ConfirmEmail(cache.user_email, ref message))
             {
-                return Ok(new 
-                {   
-                    success = true, 
-                    message = "Send confirm email to user." 
-                });
+                return Ok(new MessageResponse(true, "Send confirm email to user."));
             }  
             return StatusCode(500, new MessageResponse(false, message));
         }
@@ -94,11 +88,7 @@ namespace LocationMessanger.Controllers
             string message = null;
             if (authentication.LogOut(cache.user_token, ref message))
             {
-                return Ok(new 
-                { 
-                    success = true, 
-                    message = "Log out is successfully." 
-                });
+                return Ok(new MessageResponse(true, "Log out is successfully."));
             }
             return StatusCode(500, new DataResponse(false, message));
         }
@@ -110,11 +100,7 @@ namespace LocationMessanger.Controllers
             string message = null;
             if (authentication.RecoveryPassword(cache.user_email, ref message))
             {
-                return Ok(new 
-                { 
-                    success = true, 
-                    message = "Recovery password. Send message with code to email=" + cache.user_email + "." 
-                });
+                return Ok(new MessageResponse(true, $"Send message with code to email address = {cache.user_email}."));
             }
             return StatusCode(500, new MessageResponse(false, message));
         }
@@ -148,7 +134,7 @@ namespace LocationMessanger.Controllers
                 cache.recovery_token, cache.user_password, 
                 cache.user_confirm_password, ref message))
             {
-                return Ok(new { success = true, message = "Change user password." });
+                return Ok(new MessageResponse(true, "Change user password."));
             }
             return StatusCode(500, new MessageResponse(false, message));
         }
@@ -160,7 +146,7 @@ namespace LocationMessanger.Controllers
             string message = null;
             if (authentication.Activate(hash, ref message))
             {
-                return Ok(new { success = true, message = "User account is successfully active." });
+                return Ok(new MessageResponse(true, "User account is successfully active."));
             }
             return StatusCode(500, new MessageResponse(false, message));
         }
@@ -172,7 +158,7 @@ namespace LocationMessanger.Controllers
             string message = null;
             if (authentication.Delete(cache.user_token, ref message))
             {
-                return Ok(new { success = true, message = "Account was successfully deleted." });
+                return Ok(new MessageResponse(true, "Account was successfully deleted." ));
             }
             return StatusCode(500, new MessageResponse(false, message));
         }

@@ -3,48 +3,44 @@
   "WorkspaceRootPath": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\minimessanger\\kungfu\\profiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\minimessanger\\kungfu\\profiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\controllers\\managercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\controllers\\managercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\minimessanger\\serverdefaults\\validator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\minimessanger\\serverdefaults\\validator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\minimessanger\\serverdefaults\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\minimessanger\\serverdefaults\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\minimessanger\\serverdefaults\\mailf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\minimessanger\\serverdefaults\\mailf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\controllers\\httprequestsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\controllers\\httprequestsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\minimessanger\\kungfu\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\minimessanger\\kungfu\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\minimessanger\\kungfu\\filesaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\minimessanger\\kungfu\\filesaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\minimessanger\\serverdefaults\\custombadrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\minimessanger\\serverdefaults\\custombadrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\minimessanger\\kungfu\\chats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\minimessanger\\kungfu\\chats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\minimessanger\\kungfu\\blocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\minimessanger\\kungfu\\blocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\minimessanger\\kungfu\\authentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\minimessanger\\kungfu\\authentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|d:\\vs projects\\location-messenger-old-version\\location-messanger-master\\locationmessanger\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D5AF91FE-548A-4C48-AE60-B46EF5897FAE}|LocationMessanger\\LocationMessanger.csproj|solutionrelative:locationmessanger\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,45 +50,136 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Profiles.cs",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\Profiles.cs",
-              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\KungFu\\Profiles.cs",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\Profiles.cs",
-              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\KungFu\\Profiles.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "MailF.cs",
+              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\ServerDefaults\\MailF.cs",
+              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\ServerDefaults\\MailF.cs",
+              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\ServerDefaults\\MailF.cs",
+              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\ServerDefaults\\MailF.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwDAAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T12:16:26.212Z",
+              "WhenOpened": "2024-10-21T12:47:04.578Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "LocationMessanger\\Controllers\\UsersController.cs",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "LocationMessanger\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAADAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "HttpRequestSender.cs",
+              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Controllers\\HttpRequestSender.cs",
+              "RelativeDocumentMoniker": "LocationMessanger\\Controllers\\HttpRequestSender.cs",
+              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Controllers\\HttpRequestSender.cs",
+              "RelativeToolTip": "LocationMessanger\\Controllers\\HttpRequestSender.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T12:16:17.277Z",
+              "WhenOpened": "2024-10-21T12:47:03.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FileSaver.cs",
+              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\FileSaver.cs",
+              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\KungFu\\FileSaver.cs",
+              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\FileSaver.cs",
+              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\KungFu\\FileSaver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T12:42:47.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Chats.cs",
+              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\Chats.cs",
+              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\KungFu\\Chats.cs",
+              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\Chats.cs",
+              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\KungFu\\Chats.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T12:42:38.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Blocks.cs",
+              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\Blocks.cs",
+              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\KungFu\\Blocks.cs",
+              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\Blocks.cs",
+              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\KungFu\\Blocks.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T12:42:31.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Authentication.cs",
+              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\Authentication.cs",
+              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\KungFu\\Authentication.cs",
+              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\Authentication.cs",
+              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\KungFu\\Authentication.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T12:42:16.484Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ManagerController.cs",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Controllers\\ManagerController.cs",
-              "RelativeDocumentMoniker": "LocationMessanger\\Controllers\\ManagerController.cs",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Controllers\\ManagerController.cs",
-              "RelativeToolTip": "LocationMessanger\\Controllers\\ManagerController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA1AAAAAAAAAA==",
+              "Title": "Users.cs",
+              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\Users.cs",
+              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\KungFu\\Users.cs",
+              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\Users.cs",
+              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\KungFu\\Users.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T12:14:37.629Z",
+              "WhenOpened": "2024-10-21T12:40:10.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "LocationMessanger\\appsettings.Development.json",
+              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\appsettings.Development.json",
+              "RelativeToolTip": "LocationMessanger\\appsettings.Development.json",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-21T12:35:59.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Program.cs",
+              "RelativeDocumentMoniker": "LocationMessanger\\Program.cs",
+              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Program.cs",
+              "RelativeToolTip": "LocationMessanger\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAC8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T12:34:17.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "LocationMessanger\\Controllers\\UsersController.cs",
+              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "LocationMessanger\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T12:29:55.504Z",
               "EditorCaption": ""
             },
             {
@@ -102,110 +189,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Startup.cs",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Startup.cs",
-              "RelativeDocumentMoniker": "LocationMessanger\\Startup.cs",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\Startup.cs",
-              "RelativeToolTip": "LocationMessanger\\Startup.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T11:02:35.525Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Validator.cs",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\ServerDefaults\\Validator.cs",
-              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\ServerDefaults\\Validator.cs",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\ServerDefaults\\Validator.cs",
-              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\ServerDefaults\\Validator.cs",
-              "ViewState": "AgIAAMYAAAAAAAAAAAAQwNEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T12:10:05.651Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "LocationMessanger\\appsettings.Development.json",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\appsettings.Development.json",
-              "RelativeToolTip": "LocationMessanger\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAB0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-21T11:59:17.484Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Config.cs",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\ServerDefaults\\Config.cs",
-              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\ServerDefaults\\Config.cs",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\ServerDefaults\\Config.cs",
-              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\ServerDefaults\\Config.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T11:16:06.604Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\appsettings.json",
-              "RelativeDocumentMoniker": "LocationMessanger\\appsettings.json",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\appsettings.json",
-              "RelativeToolTip": "LocationMessanger\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-21T12:01:40.022Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MailF.cs",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\ServerDefaults\\MailF.cs",
-              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\ServerDefaults\\MailF.cs",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\ServerDefaults\\MailF.cs",
-              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\ServerDefaults\\MailF.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAQwAQAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T11:25:36.127Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FileSaver.cs",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\FileSaver.cs",
-              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\KungFu\\FileSaver.cs",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\KungFu\\FileSaver.cs",
-              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\KungFu\\FileSaver.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T11:46:44.947Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CustomBadRequest.cs",
-              "DocumentMoniker": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\ServerDefaults\\CustomBadRequest.cs",
-              "RelativeDocumentMoniker": "LocationMessanger\\MiniMessanger\\ServerDefaults\\CustomBadRequest.cs",
-              "ToolTip": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\MiniMessanger\\ServerDefaults\\CustomBadRequest.cs",
-              "RelativeToolTip": "LocationMessanger\\MiniMessanger\\ServerDefaults\\CustomBadRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T11:25:30.009Z",
-              "EditorCaption": ""
             }
           ]
         }

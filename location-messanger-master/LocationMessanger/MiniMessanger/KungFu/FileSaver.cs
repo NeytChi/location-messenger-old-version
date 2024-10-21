@@ -1,8 +1,6 @@
 using System;
-using Common;
 using Serilog;
 using System.IO;
-using Serilog.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using LocationMessanger.Settings;

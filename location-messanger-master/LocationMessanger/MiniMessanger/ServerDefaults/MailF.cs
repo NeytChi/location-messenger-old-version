@@ -1,7 +1,6 @@
 ﻿using System;
 using Serilog;
 using System.Net;
-using Serilog.Core;
 using System.Net.Mail;
 using LocationMessanger.Settings;
 using Microsoft.Extensions.Options;

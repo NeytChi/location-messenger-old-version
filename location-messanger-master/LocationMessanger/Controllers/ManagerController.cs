@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using LocationMessanger.Responses;
 using Microsoft.Extensions.Options;
 using LocationMessanger.Settings;
+using Serilog;
 
 namespace LocationMessanger.Controllers
 {
@@ -23,7 +24,7 @@ namespace LocationMessanger.Controllers
         public ActionResult State()
         {
             bool result = sender.CheckUrlState();
-                log.Information("Return state urls, IP -> " 
+                Log.Logger.Information("Return state urls, IP -> " 
                 + HttpContext.Connection.RemoteIpAddress.ToString());
             return Ok(new DataResponse(result, new {url = result ? sender.UrlRedirect : "" }));
         }
