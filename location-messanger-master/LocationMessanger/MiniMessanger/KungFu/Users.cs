@@ -6,7 +6,7 @@ using miniMessanger.Models;
 using System.Collections.Generic;
 using System;
 using Z.EntityFramework.Plus;
-using LocationMessanger.Controllers;
+using LocationMessanger.Reponses;
 
 namespace miniMessanger.Manage
 {

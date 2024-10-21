@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace LocationMessanger.Controllers
+﻿namespace LocationMessanger.Reponses
 {
     public class MessageResponse
     {

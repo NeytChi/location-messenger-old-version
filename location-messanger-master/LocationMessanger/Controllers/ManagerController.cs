@@ -1,13 +1,8 @@
 using Serilog;
-using System.IO;
-using System.Net;
 using Serilog.Core;
-using Newtonsoft.Json;
-using miniMessanger.Models;
-using Newtonsoft.Json.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using Common;
+using LocationMessanger.Reponses;
 
 namespace LocationMessanger.Controllers
 {

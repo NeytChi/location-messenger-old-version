@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace LocationMessanger.Controllers
+﻿namespace LocationMessanger.Controllers
 {
     public static class ConvertHelper
     {
@@ -11,8 +6,10 @@ namespace LocationMessanger.Controllers
         {
             if (!string.IsNullOrEmpty(value))
             {
-                if (Double.TryParse(value, out double result))
+                if (double.TryParse(value, out double result))
+                {
                     return result;
+                }
             }
             return null;
         }
@@ -20,7 +17,7 @@ namespace LocationMessanger.Controllers
         {
             if (!string.IsNullOrEmpty(value))
             {
-                if (Int32.TryParse(value, out int result))
+                if (int.TryParse(value, out int result))
                     return result;
             }
             return 0;

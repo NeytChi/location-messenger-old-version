@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VS Projects\\location-messanger-master\\LocationMessanger\\LocationMessanger.csproj": {}
+    "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\LocationMessanger.csproj": {}
   },
   "projects": {
-    "D:\\VS Projects\\location-messanger-master\\LocationMessanger\\LocationMessanger.csproj": {
+    "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\LocationMessanger.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VS Projects\\location-messanger-master\\LocationMessanger\\LocationMessanger.csproj",
+        "projectUniqueName": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\LocationMessanger.csproj",
         "projectName": "LocationMessanger",
-        "projectPath": "D:\\VS Projects\\location-messanger-master\\LocationMessanger\\LocationMessanger.csproj",
+        "projectPath": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\LocationMessanger.csproj",
         "packagesPath": "C:\\Users\\neyto\\.nuget\\packages\\",
-        "outputPath": "D:\\VS Projects\\location-messanger-master\\LocationMessanger\\obj\\",
+        "outputPath": "D:\\VS Projects\\location-messenger-old-version\\location-messanger-master\\LocationMessanger\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual Studio SDK\\NuGetPackages"
@@ -122,7 +122,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,23 +1,17 @@
 ﻿using miniMessanger.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace LocationMessanger.Controllers
+namespace LocationMessanger.Reponses
 {
-    public class UserByLocationResponse
+    public class UserResponse
     {
-        public long user_id { get; set; }
+        public int user_id { get; set; }
         public string user_email { get; set; }
         public string user_login { get; set; }
         public int created_at { get; set; }
         public int? last_login_at { get; set; }
         public string user_public_token { get; set; }
-        public ProfileResponse profile { get; set; }
-        public bool liked_user { get; set; }
-        public bool disliked_user { get; set; }
-        public UserByLocationResponse(User user, string awsPath)
+
+        public UserResponse(User user)
         {
             user_id = user.UserId;
             user_email = user.UserEmail;
@@ -25,10 +19,6 @@ namespace LocationMessanger.Controllers
             created_at = user.CreatedAt;
             last_login_at = user.LastLoginAt;
             user_public_token = user.UserPublicToken;
-            if (user.Profile != null)
-            {
-                profile = new ProfileResponse(user.Profile, awsPath);
-            }
         }
     }
 }
