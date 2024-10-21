@@ -8,7 +8,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using miniMessanger.Models;
 using System;
-using System.Runtime;
 
 namespace LocationMessanger
 {

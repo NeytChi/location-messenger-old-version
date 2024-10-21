@@ -2,7 +2,6 @@ using System;
 using Common;
 using Serilog;
 using System.Linq;
-using Serilog.Core;
 using miniMessanger.Models;
 using Microsoft.Extensions.Options;
 using LocationMessanger.Settings;
@@ -14,7 +13,7 @@ namespace miniMessanger
         public Context context;
         public Validator validator;
         public MailF mail;
-        public Logger log;
+        public ILogger log = Log.Logger;
         public string IP;
         public int PORT;
         public Authentication(Context context, Validator validator, IOptions<ServerSettings> settings)
@@ -24,9 +23,6 @@ namespace miniMessanger
             mail = new MailF(settings);
             IP = settings.Value.IP;
             PORT = settings.Value.Port;
-            log = new LoggerConfiguration()
-            .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
         }
         public User Login(string UserEmail, string UserPassword, ref string message)
         {

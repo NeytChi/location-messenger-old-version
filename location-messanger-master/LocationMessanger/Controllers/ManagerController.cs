@@ -1,5 +1,3 @@
-using Serilog;
-using Serilog.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using LocationMessanger.Responses;
@@ -12,9 +10,6 @@ namespace LocationMessanger.Controllers
     [Route("v1.0/[controller]/[action]/")]
     public class ManagerController : ControllerBase
     {
-        public Logger log = new LoggerConfiguration()
-            .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
         public HttpRequestSender sender;
 
         public ManagerController(IOptions<ServerSettings> settings)

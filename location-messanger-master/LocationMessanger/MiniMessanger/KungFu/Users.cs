@@ -17,15 +17,12 @@ namespace miniMessanger.Manage
         public Context context;
         public string awsPath;
         public Validator validator;
-        public Logger log;
+        public ILogger log = Log.Logger;
         public Users(Context context, Validator validator, IOptions<ServerSettings> settings)
         {
             this.context = context;
             this.awsPath = settings.Value.AwsPath;
             this.validator = validator;
-            log = new LoggerConfiguration()
-            .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
         }
         public LikeProfiles LikeUser(UserCache cache, ref string message)
         {

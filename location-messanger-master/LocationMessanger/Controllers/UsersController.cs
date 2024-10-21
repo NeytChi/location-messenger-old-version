@@ -12,6 +12,7 @@ using LocationMessanger.Responses;
 using Microsoft.Extensions.Options;
 using LocationMessanger.Settings;
 
+
 namespace LocationMessanger.Controllers
 {
     [ApiController]
@@ -25,10 +26,7 @@ namespace LocationMessanger.Controllers
         public Authentication authentication;
         public Blocks blocks;
         public Validator Validator;
-        public Logger log = new LoggerConfiguration()
-            .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
-		
+
         public string AwsPath;
         
         public UsersController(Context context, IOptions<ServerSettings> settings)

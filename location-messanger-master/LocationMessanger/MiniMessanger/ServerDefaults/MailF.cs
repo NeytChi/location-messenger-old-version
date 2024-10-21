@@ -10,6 +10,7 @@ namespace Common
 {
     public class MailF
     {
+        public ILogger log = Log.Logger;
         public MailF(IOptions<ServerSettings> settings)
         {
             ip = settings.Value.IP;
@@ -23,11 +24,8 @@ namespace Common
             smtp.Credentials = new NetworkCredential(mailAddress, mailPassword);
             from = new MailAddress(mailAddress, domen);
             smtp.EnableSsl = true;
-            log = new LoggerConfiguration()
-            .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
+            
         }
-        public Logger log;
         public bool emailEnable = true;
         private string GmailServer = "smtp.gmail.com";
         private int GmailPort = 587;

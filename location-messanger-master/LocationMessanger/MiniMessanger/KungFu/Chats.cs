@@ -20,7 +20,7 @@ namespace miniMessanger
         public Users users;
         public Validator validator;
         public FileSaver system;
-        public Logger log;
+        public ILogger log = Log.Logger;
         public string savePath;
         public string awsPath;
         public Chats(Context context, Users users, Validator validator, IOptions<ServerSettings> settings)
@@ -31,9 +31,6 @@ namespace miniMessanger
             this.awsPath = settings.Value.AwsPath;
             this.validator = validator;
             this.system = new FileSaver(settings);
-            log = new LoggerConfiguration()
-            .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
         }
         public Chatroom CreateChat(string userToken, string publicToken, ref string message)
         {

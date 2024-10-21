@@ -11,14 +11,12 @@ namespace miniMessanger
 {
     public class FileSaver
     {
-        public Logger log;
+        public ILogger log = Log.Logger;
         public string savepath;
         public FileSaver(IOptions<ServerSettings> settings)
         {
             this.savepath = settings.Value.savePath;
-            log = new LoggerConfiguration()
-            .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
+            
         }
         public void DeleteFile(string relativePath)
         {

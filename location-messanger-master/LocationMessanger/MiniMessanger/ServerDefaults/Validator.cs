@@ -16,10 +16,8 @@ namespace Common
         private const sbyte maxLength = 20;
         
         private readonly EmailAddressAttribute emailChecker = new();
-        public Logger log = new LoggerConfiguration()
-            .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
-		public Regex onlyEnglish = new("^[a-zA-Z0-9]*$", RegexOptions.Compiled);
+        public ILogger log = Log.Logger;
+        public Regex onlyEnglish = new("^[a-zA-Z0-9]*$", RegexOptions.Compiled);
 		public Random random = new();
         private readonly string Alphavite = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         private readonly string sum_names = "abc123";

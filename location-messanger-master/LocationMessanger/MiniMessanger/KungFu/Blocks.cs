@@ -12,9 +12,7 @@ namespace miniMessanger.Manage
     {
         public Users users;
         public Context context;
-        public Logger log = new LoggerConfiguration()
-            .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
-            .CreateLogger();
+        public ILogger log = Log.Logger;
         public Blocks(Users users, Context context)
         {
             this.users = users;

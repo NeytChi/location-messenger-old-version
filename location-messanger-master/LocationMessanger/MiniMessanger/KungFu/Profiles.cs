@@ -14,14 +14,11 @@ namespace miniMessanger
     {
         public Context context;
         public FileSaver fileSystem;
-        public Logger log;
+        public ILogger log = Log.Logger;
         public Profiles(Context context, IOptions<ServerSettings> settings)
         {
             this.context = context;
             fileSystem = new FileSaver(settings);
-            log = new LoggerConfiguration()
-                .WriteTo.File("./logs/log", rollingInterval: RollingInterval.Day)
-                .CreateLogger();
         }
         public Profile UpdateProfile (
             int userId,
