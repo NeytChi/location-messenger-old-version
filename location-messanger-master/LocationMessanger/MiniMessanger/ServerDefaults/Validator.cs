@@ -22,13 +22,13 @@ namespace Common
         private readonly string Alphavite = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         private readonly string sum_names = "abc123";
 
-        public bool ValidateUser(UserCache cache, ref string message)
+        public bool ValidateUser(string login, string email, string password, ref string message)
         {
-            if (ValidateLogin(cache.user_login, ref message))
+            if (ValidateLogin(login, ref message))
             {
-                if (ValidateEmail(cache.user_email, ref message))
+                if (ValidateEmail(email, ref message))
                 {
-                    return ValidatePassword(cache.user_password, ref message);
+                    return ValidatePassword(password, ref message);
                 }
             }
             return false;

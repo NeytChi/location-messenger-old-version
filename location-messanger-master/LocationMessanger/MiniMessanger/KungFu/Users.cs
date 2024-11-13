@@ -1,7 +1,6 @@
 using Common;
 using Serilog;
 using System.Linq;
-using Serilog.Core;
 using miniMessanger.Models;
 using System.Collections.Generic;
 using System;
@@ -9,6 +8,7 @@ using Z.EntityFramework.Plus;
 using LocationMessanger.Responses;
 using Microsoft.Extensions.Options;
 using LocationMessanger.Settings;
+using LocationMessanger.Requests.ForChats;
 
 namespace miniMessanger.Manage
 {
@@ -26,8 +26,8 @@ namespace miniMessanger.Manage
         }
         public LikeProfiles LikeUser(UserCache cache, ref string message)
         {
-            User user = GetUserByToken(cache.user_token, ref message);
-            User opposideUser = GetUserByPublicToken(cache.opposide_public_token, ref message);
+            User user = GetUserByToken(cache.UserToken, ref message);
+            User opposideUser = GetUserByPublicToken(cache.OpposidePublicToken, ref message);
             if (user != null && opposideUser != null)
             {
                 if (user.UserId != opposideUser.UserId)
@@ -55,8 +55,8 @@ namespace miniMessanger.Manage
         }
         public LikeProfiles DislikeUser(UserCache cache, ref string message)
         {
-            User user = GetUserByToken(cache.user_token, ref message);
-            User opposideUser = GetUserByPublicToken(cache.opposide_public_token, ref message);
+            User user = GetUserByToken(cache.UserToken, ref message);
+            User opposideUser = GetUserByPublicToken(cache.OpposidePublicToken, ref message);
             if (user != null && opposideUser != null)
             {
                 if (user.UserId != opposideUser.UserId)
@@ -211,15 +211,15 @@ namespace miniMessanger.Manage
             var users = context.User
                 .IncludeOptimized(u => u.Profile)
                 .Where(u => u.UserId != userid
-                && (u.Profile.weight >= cache.weight_from && u.Profile.weight <= cache.weight_to)
-                && (u.Profile.height >= cache.height_from && u.Profile.height <= cache.height_to)
-                && u.Profile.status.Contains(cache.status)
+                && (u.Profile.weight >= cache.WeightFrom && u.Profile.weight <= cache.WeightTo)
+                && (u.Profile.height >= cache.HeightTo && u.Profile.height <= cache.HeightTo)
+                && u.Profile.status.Contains(cache.Status)
                 && u.Activate == 1
                 && !u.Deleted)
                 .OrderBy(u => Math.Abs(u.Profile.profileLatitude - userProfile.profileLatitude))
                 .OrderBy(u => Math.Abs(u.Profile.profileLongitude - userProfile.profileLongitude))
                 .Select(user => new UserByLocationResponse(user, awsPath))
-                .Skip(cache.page * cache.count).Take(cache.count).ToList();
+                .Skip(cache.Page * cache.Count).Take(cache.Count).ToList();
 
             users = GetNonBlockedUsers(users, userid);
             log.Information("Get users by location, id -> " + userid);

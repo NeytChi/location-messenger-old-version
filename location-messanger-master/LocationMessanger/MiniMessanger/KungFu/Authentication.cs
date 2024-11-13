@@ -5,6 +5,7 @@ using System.Linq;
 using miniMessanger.Models;
 using Microsoft.Extensions.Options;
 using LocationMessanger.Settings;
+using LocationMessanger.Requests.ForUsers;
 
 namespace miniMessanger
 {
@@ -164,14 +165,14 @@ namespace miniMessanger
             }
             return user;
         }
-        public User Registrate(UserCache cache, ref string message)
+        public User Registrate(CreateUserRequest request, ref string message)
         {
-            if (validator.ValidateUser(cache, ref message))
+            if (validator.ValidateUser(request.UserLogin, request.UserEmail, request.Password, ref message))
             {
-                User user = GetUserByEmail(cache.user_email, ref message);
+                User user = GetUserByEmail(request.UserEmail, ref message);
                 if (user == null)
                 {
-                    user = CreateUser(cache.user_email, cache.user_login, cache.user_password);
+                    user = CreateUser(request.UserEmail, request.UserLogin, request.Password);
                     message = "User account was successfully registered. See your email to activate account by link.";
                     return user;
                 }

@@ -3,7 +3,6 @@ using miniMessanger.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using System.Configuration;
 using Microsoft.Extensions.Configuration;
 
 namespace LocationMessanger

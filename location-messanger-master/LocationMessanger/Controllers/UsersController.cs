@@ -2,19 +2,20 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-
 using miniMessanger;
 using miniMessanger.Models;
 using miniMessanger.Manage;
 using LocationMessanger.Responses;
 using Microsoft.Extensions.Options;
 using LocationMessanger.Settings;
+using LocationMessanger.Requests.ForUsers;
+using LocationMessanger.Requests.ForChats;
 
 
 namespace LocationMessanger.Controllers
 {
     [ApiController]
-    [Route("v1.0/[controller]/[action]")]
+    [Route("/[controller]/[action]")]
     public class UsersController : ControllerBase
     {
         private readonly Context context;
@@ -24,27 +25,26 @@ namespace LocationMessanger.Controllers
         public Authentication authentication;
         public Blocks blocks;
         public Validator Validator;
-
         public string AwsPath;
         
         public UsersController(Context context, IOptions<ServerSettings> settings)
         {
-            this.AwsPath = settings.Value.AwsPath;
+            AwsPath = settings.Value.AwsPath;
             this.context = context;
-            this.Validator = new Validator();
-            this.users = new Users(context, Validator, settings);
-            this.chats = new Chats(context, users, Validator, settings);
-            this.profiles = new Profiles(context, settings);
-            this.blocks = new Blocks(users, context);
-            this.authentication = new Authentication(context, Validator, settings);
+            Validator = new Validator();
+            users = new Users(context, Validator, settings);
+            chats = new Chats(context, users, Validator, settings);
+            profiles = new Profiles(context, settings);
+            blocks = new Blocks(users, context);
+            authentication = new Authentication(context, Validator, settings);
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult Registration(UserCache cache)
+        public ActionResult Registration(CreateUserRequest request)
         {
             string message = string.Empty;
-            User user = authentication.Registrate(cache, ref message);
+            User user = authentication.Registrate(request, ref message);
             if (user != null)
             {
                 return Ok( new DataMessangeResponse(true, message, new
@@ -54,14 +54,13 @@ namespace LocationMessanger.Controllers
             }
             return StatusCode(500, new MessageResponse(false, message));
         }
-        
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult RegistrationEmail(UserCache cache)
+        public ActionResult RegistrationEmail(RegistrationEmailRequest request)
         {
             string message = null;
-            if (authentication.ConfirmEmail(cache.user_email, ref message))
+            if (authentication.ConfirmEmail(request.Email, ref message))
             {
                 return Ok(new MessageResponse(true, "Send confirm email to user."));
             }  
@@ -70,10 +69,10 @@ namespace LocationMessanger.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult Login(UserCache cache)
+        public ActionResult Login(LoginRequest request)
         {
             string message = null;
-            User user = authentication.Login(cache.user_email, cache.user_password, ref message);
+            User user = authentication.Login(request.UserEmail, request.Password, ref message);
             if (user != null)
             {
                 return Ok(new DataResponse(true, new UserProfileResponse(user, AwsPath)));
@@ -83,10 +82,10 @@ namespace LocationMessanger.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult LogOut(UserCache cache)
+        public ActionResult LogOut(LogOutRequest request)
         {
             string message = null;
-            if (authentication.LogOut(cache.user_token, ref message))
+            if (authentication.LogOut(request.UserToken, ref message))
             {
                 return Ok(new MessageResponse(true, "Log out is successfully."));
             }
@@ -95,44 +94,35 @@ namespace LocationMessanger.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult RecoveryPassword(UserCache cache)
+        public ActionResult RecoveryPassword(RecoveryPasswordRequest request)
         {
             string message = null;
-            if (authentication.RecoveryPassword(cache.user_email, ref message))
+            if (authentication.RecoveryPassword(request.UserEmail, ref message))
             {
-                return Ok(new MessageResponse(true, $"Send message with code to email address = {cache.user_email}."));
+                return Ok(new MessageResponse(true, $"Send message with code to email address -> {request.UserEmail}"));
             }
             return StatusCode(500, new MessageResponse(false, message));
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult CheckRecoveryCode(UserCache cache)
+        public ActionResult CheckRecoveryCode(CheckRecoveryCodeRequest request)
         {
             string message = null;
-            string RecoveryToken = authentication.CheckRecoveryCode(cache.user_email, cache.recovery_code, ref message);
+            string RecoveryToken = authentication.CheckRecoveryCode(request.UserEmail, request.RecoveryCode, ref message);
             if (!string.IsNullOrEmpty(RecoveryToken))
             {
-                return Ok(new 
-                { 
-                    success = true, 
-                    data = new 
-                    { 
-                        recovery_token = RecoveryToken 
-                    }
-                });
+                return Ok(new { success = true, data = new { recovery_token = RecoveryToken }});
             }
             return StatusCode(500, new MessageResponse(false, message));
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult ChangePassword(UserCache cache)
+        public ActionResult ChangePassword(ChangePasswordRequest request)
         {
             string message = null;
-            if (authentication.ChangePassword(
-                cache.recovery_token, cache.user_password, 
-                cache.user_confirm_password, ref message))
+            if (authentication.ChangePassword(request.RecoveryToken, request.UserPassword, request.UserConfirmPassword, ref message))
             {
                 return Ok(new MessageResponse(true, "Change user password."));
             }
@@ -153,10 +143,10 @@ namespace LocationMessanger.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult Delete(UserCache cache)
+        public ActionResult Delete(DeleteRequest request)
         { 
             string message = null;
-            if (authentication.Delete(cache.user_token, ref message))
+            if (authentication.Delete(request.UserToken, ref message))
             {
                 return Ok(new MessageResponse(true, "Account was successfully deleted." ));
             }
@@ -220,10 +210,10 @@ namespace LocationMessanger.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult Profile(UserCache cache)
+        public ActionResult Profile(ProfileRequest request)
         {
             string message = null;
-            User user = users.GetUserByToken(cache.user_token, ref message);
+            User user = users.GetUserByToken(request.UserToken, ref message);
             if (user != null) {
                 user.Profile = authentication.CreateIfNotExistProfile(user.UserId);
                 return Ok(new DataResponse(true, new ProfileResponse(user.Profile, AwsPath)));
@@ -233,13 +223,13 @@ namespace LocationMessanger.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult ProfileLocation(UserCache cache)
+        public ActionResult ProfileLocation(ProfileLocationRequest request)
         {
             string message = null;
-            User user = users.GetUserByToken(cache.user_token, ref message);
+            User user = users.GetUserByToken(request.UserToken, ref message);
             if (user != null) {
                 Profile profile = authentication.CreateIfNotExistProfile(user.UserId);
-                profiles.UpdateLocation(ref profile, cache.profile_latitude, cache.profile_longitude);
+                profiles.UpdateLocation(ref profile, request.Latitude, request.Longitude);
                 return Ok(new DataResponse(true, new ProfileResponse(user.Profile, AwsPath)));
             }
             return StatusCode(500, new MessageResponse(false, message));
@@ -247,17 +237,17 @@ namespace LocationMessanger.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult GetUsersList(UserCache cache)
+        public ActionResult GetUsersList(GetUsersRequest request)
         {
             string message = null;
-            cache.count = cache.count == 0 ? 30 : cache.count;
-            User user = users.GetUserByToken(cache.user_token, ref message);
+            request.Count = request.Count == 0 ? 30 : request.Count;
+            var user = users.GetUserByToken(request.UserToken, ref message);
             if (user != null)
             {
                 return Ok(new 
                 { 
                     success = true, 
-                    data = users.GetUsers(user.UserId, cache.page, cache.count) 
+                    data = users.GetUsers(user.UserId, request.Page, request.Count) 
                 });
             }
             return StatusCode(500, new MessageResponse(false, message));
@@ -265,17 +255,17 @@ namespace LocationMessanger.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult SelectChats(UserCache cache)
+        public ActionResult SelectChats(GetUsersRequest request)
         {
             string message = null;
-            cache.count = cache.count == 0 ? 30 : cache.count;
-            User user = users.GetUserByToken(cache.user_token, ref message);
+            request.Count = request.Count == 0 ? 30 : request.Count;
+            var user = users.GetUserByToken(request.UserToken, ref message);
             if (user != null)
             {
                 return Ok(new 
                 { 
                     success = true,
-                    data = chats.GetChats(user.UserId, cache.page, cache.count) 
+                    data = chats.GetChats(user.UserId, request.Page, request.Count) 
                 });
             }
             return StatusCode(500, new MessageResponse(false, message));
@@ -303,10 +293,10 @@ namespace LocationMessanger.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult CreateChat(UserCache cache)
+        public ActionResult CreateChat(CreateChatRequest request)
         {
             string message = null;
-            Chatroom room = chats.CreateChat(cache.user_token, cache.opposide_public_token, ref message);
+            var room = chats.CreateChat(request.UserToken, request.OpposidePublicToken, ref message);
             if (room != null)
             {
                 return Ok(new DataResponse(true, 
@@ -359,10 +349,10 @@ namespace LocationMessanger.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult BlockUser(UserCache cache)
+        public ActionResult BlockUser(BlockUserRequest request)
         {
             string message = null;
-            if (blocks.BlockUser(cache.user_token, cache.opposide_public_token, cache.blocked_reason, ref message))
+            if (blocks.BlockUser(request.UserToken, request.OpposidePublicToken, request.BlockedReason, ref message))
             {
                 return Ok(new { success = true, message = "Block user - successed." });
             }
@@ -371,29 +361,25 @@ namespace LocationMessanger.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult GetBlockedUsers(UserCache cache)
+        public ActionResult GetBlockedUsers(GetBlockedUsersRequest request)
         {
             string message = null;
-            cache.count = cache.count == 0 ? 50 : cache.count;
-            User user = users.GetUserByToken(cache.user_token, ref message);
+            request.Count = request.Count == 0 ? 50 : request.Count;
+            User user = users.GetUserByToken(request.UserToken, ref message);
             if (user != null)
             {
-                var blockedUsers = blocks.GetBlockedUsers(user.UserId, cache.page, cache.count);
-                return Ok(new 
-                { 
-                    success = true, 
-                    data = blockedUsers 
-                });
+                var blockedUsers = blocks.GetBlockedUsers(user.UserId, request.Page, request.Count);
+                return Ok(new { success = true, data = blockedUsers });
             }
             return StatusCode(500, new MessageResponse(false, message));
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult UnblockUser(UserCache cache)
+        public ActionResult UnblockUser(BlockUserRequest request)
         {
             string message = null;
-            if (blocks.UnblockUser(cache.user_token, cache.opposide_public_token, ref message))
+            if (blocks.UnblockUser(request.UserToken, request.OpposidePublicToken, ref message))
             {
                 return Ok(new MessageResponse(true, "Unblock user - successed."));
             }
@@ -402,10 +388,10 @@ namespace LocationMessanger.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult ComplaintContent(UserCache cache)
+        public ActionResult ComplaintContent(ComplaintContentRequest cache)
         {
             string message = null;   
-            if (blocks.Complaint(cache.user_token, cache.message_id, cache.complaint, ref message))
+            if (blocks.Complaint(cache.UserToken, cache.MessageId, cache.Complaint, ref message))
             {
                 return Ok(new MessageResponse (true, "Complain content - successed."));
             }
@@ -414,14 +400,14 @@ namespace LocationMessanger.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult GetUsersByGender(UserCache cache)
+        public ActionResult GetUsersByGender(GetUsersRequest request)
         {
             string message = null;
-            cache.count = cache.count == 0 ? 30 : cache.count;
-            User user = users.GetUserWithProfile(cache.user_token, ref message);
+            request.Count = request.Count == 0 ? 30 : request.Count;
+            User user = users.GetUserWithProfile(request.UserToken, ref message);
             if (user != null)
             {
-                var data = users.GetUsersByGender(user.UserId, user.Profile.ProfileGender, cache.page, cache.count);
+                var data = users.GetUsersByGender(user.UserId, user.Profile.ProfileGender, request.Page, request.Count);
                 return Ok(new DataResponse(true, data));
             }
             return StatusCode(500, new DataResponse(false, message));
@@ -429,14 +415,14 @@ namespace LocationMessanger.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult GetUsersByLocation(UserCache cache)
+        public ActionResult GetUsersByLocation(GetUsersRequest cache)
         {
             string message = null;
-            cache.count = cache.count == 0 ? 30 : cache.count;
-            User user = users.GetUserWithProfile(cache.user_token, ref message);
+            cache.Count = cache.Count == 0 ? 30 : cache.Count;
+            User user = users.GetUserWithProfile(cache.UserToken, ref message);
             if (user != null)
                 return Ok(new { success = true, 
-                    data = users.GetUsersByLocation(user.UserId, user.Profile, cache.page, cache.count) });
+                    data = users.GetUsersByLocation(user.UserId, user.Profile, cache.Page, cache.Count) });
             return StatusCode(500, new MessageResponse(false, message));
         }
         [HttpPut]
@@ -445,8 +431,8 @@ namespace LocationMessanger.Controllers
         public ActionResult GetUsersByProfile(UserCache cache)
         {
             string message = null;
-            cache.count = cache.count == 0 ? 30 : cache.count;
-            User user = users.GetUserWithProfile(cache.user_token, ref message);
+            cache.Count = cache.Count == 0 ? 30 : cache.Count;
+            User user = users.GetUserWithProfile(cache.UserToken, ref message);
             if (user != null)
                 return Ok(new { success = true, 
                     data = users.GetUsersByProfile(user.UserId, user.Profile, cache) });
@@ -455,14 +441,14 @@ namespace LocationMessanger.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult SelectChatsByGender(UserCache cache)
+        public ActionResult SelectChatsByGender(GetUsersRequest cache)
         {
             string message = null;
-            cache.count = cache.count == 0 ? 30 : cache.count;
-            var user = users.GetUserWithProfile(cache.user_token, ref message);
+            cache.Count = cache.Count == 0 ? 30 : cache.Count;
+            var user = users.GetUserWithProfile(cache.UserToken, ref message);
             if (user != null)
             {
-                var data = chats.GetChatsByGender(user.UserId, user.Profile.ProfileGender, cache.page, cache.count);
+                var data = chats.GetChatsByGender(user.UserId, user.Profile.ProfileGender, cache.Page, cache.Count);
                 return Ok(new { success = true, data });
             }
             return StatusCode(500, new MessageResponse(false, message));
@@ -470,14 +456,14 @@ namespace LocationMessanger.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult ReciprocalUsers(UserCache cache)
+        public ActionResult ReciprocalUsers(GetUsersRequest cache)
         {
             string message = null;
-            cache.count = cache.count == 0 ? 30 : cache.count;
-            User user = users.GetUserWithProfile(cache.user_token, ref message);
+            cache.Count = cache.Count == 0 ? 30 : cache.Count;
+            User user = users.GetUserWithProfile(cache.UserToken, ref message);
             if (user != null)
             {
-                dynamic data = users.GetLikedUsers(user.UserId, user.Profile.ProfileGender, cache.page, cache.count);
+                dynamic data = users.GetLikedUsers(user.UserId, user.Profile.ProfileGender, cache.Page, cache.Count);
                 return Ok(new { success = true, data });
             }
             return StatusCode(500, new MessageResponse(false, message));
